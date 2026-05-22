@@ -58,3 +58,18 @@
   font-weight: bold;
   margin-bottom: 8px;
 }
+
+.btn-recharger {
+  background-color: #1a6b3c;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.btn-recharger:hover {
+  background-color: #145c32;
+}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import './DetailLigne.css';
 import Header from './Header';
@@ -14,23 +14,19 @@ function App() {
   const [chargement, setChargement] = useState(true);
   const [erreur, setErreur] = useState(null);
 
-  useEffect(() => {
+  const chargerLignes = useCallback(() => {
+    setChargement(true);
+    setErreur(null);
     fetch("http://localhost:5000/lignes")
       .then(response => {
-        if (!response.ok) {
-          throw new Error("Erreur serveur : " + response.status);
-        }
+        if (!response.ok) throw new Error("Erreur serveur : " + response.status);
         return response.json();
       })
-      .then(data => {
-        setLignes(data);
-        setChargement(false);
-      })
-      .catch(error => {
-        setErreur(error.message);
-        setChargement(false);
-      });
+      .then(data => { setLignes(data); setChargement(false); })
+      .catch(error => { setErreur(error.message); setChargement(false); });
   }, []);
+
+  useEffect(() => { chargerLignes(); }, [chargerLignes]);
 
   const lignesFiltrees = lignes.filter(l =>
     l.depart.toLowerCase().includes(recherche.toLowerCase()) ||
@@ -47,7 +43,9 @@ function App() {
     if (ligneSelectionnee && ligneSelectionnee.id === ligne.id) {
       setLigneSelectionnee(null);
     } else {
-      setLigneSelectionnee(ligne);
+      fetch("http://localhost:5000/lignes/" + ligne.id)
+        .then(response => response.json())
+        .then(data => setLigneSelectionnee(data));
     }
   }
 
@@ -82,6 +80,7 @@ function App() {
       <Header />
       <main className="contenu">
         <p className="compteur-recherche">Vous avez effectue {nbRecherches} recherche{nbRecherches > 1 ? 's' : ''}</p>
+        <button className="btn-recharger" onClick={chargerLignes}>Recharger</button>
         <Recherche valeur={recherche} onChange={handleRecherche} />
         <p className="resultat-recherche">
           {lignesFiltrees.length} ligne{lignesFiltrees.length > 1 ? 's' : ''} trouvee{lignesFiltrees.length > 1 ? 's' : ''}

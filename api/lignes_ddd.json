@@ -36,5 +36,17 @@
     "depart": "Yoff", "arrivee": "Sandaga",
     "arrets": 11,
     "listeArrets": ["Yoff Village", "Aeroport LSS", "Parcelles U17", "Grand Yoff", "HLM", "Sandaga"]
+  },
+  {
+    "id": 7, "numero": "27",
+    "depart": "Rufisque", "arrivee": "Plateau",
+    "arrets": 20,
+    "listeArrets": ["Rufisque Gare", "Thiaroye", "Pikine", "Guediawaye", "Liberte 6", "Plateau"]
+  },
+  {
+    "id": 8, "numero": "44",
+    "depart": "HLM", "arrivee": "Aeroport LSS",
+    "arrets": 9,
+    "listeArrets": ["HLM Grand Yoff", "Liberte 5", "Mermoz", "Yoff", "Aeroport LSS"]
   }
 ]
