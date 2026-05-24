@@ -6,6 +6,10 @@ import Recherche from './Recherche';
 import LigneBus from './LigneBus';
 import Footer from './Footer';
 import Carte from './Carte';
+import Meteo from './Meteo';
+import SignalerIncident from './SignalerIncident';
+import ListeIncidents from './ListeIncidents';
+import Previsions from './Previsions';
 
 function App() {
   const [recherche, setRecherche] = useState("");
@@ -82,6 +86,7 @@ function App() {
       <main className="contenu">
         <p className="compteur-recherche">Vous avez effectue {nbRecherches} recherche{nbRecherches > 1 ? 's' : ''}</p>
         <button className="btn-recharger" onClick={chargerLignes}>Recharger</button>
+        <Meteo />
         <Recherche valeur={recherche} onChange={handleRecherche} />
         <p className="resultat-recherche">
           {lignesFiltrees.length} ligne{lignesFiltrees.length > 1 ? 's' : ''} trouvee{lignesFiltrees.length > 1 ? 's' : ''}
@@ -121,6 +126,8 @@ function App() {
         )}
       </main>
       <Carte />
+        <SignalerIncident />
+        <ListeIncidents />
       <Footer />
     </div>
   );

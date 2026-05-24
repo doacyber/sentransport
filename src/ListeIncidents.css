@@ -1,0 +1,54 @@
+.liste-incidents {
+  margin-top: 16px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.liste-titre {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin: 0 0 12px 0;
+}
+
+.liste-vide {
+  color: #95a5a6;
+  font-style: italic;
+}
+
+.liste-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.liste-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #0a6e31;
+}
+
+.liste-ligne {
+  font-weight: bold;
+  color: #0a6e31;
+  min-width: 70px;
+}
+
+.liste-lieu {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  min-width: 80px;
+}
+
+.liste-desc {
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
