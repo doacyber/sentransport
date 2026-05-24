@@ -5,6 +5,7 @@ import Header from './Header';
 import Recherche from './Recherche';
 import LigneBus from './LigneBus';
 import Footer from './Footer';
+import Carte from './Carte';
 
 function App() {
   const [recherche, setRecherche] = useState("");
@@ -119,6 +120,7 @@ function App() {
           </div>
         )}
       </main>
+      <Carte />
       <Footer />
     </div>
   );
