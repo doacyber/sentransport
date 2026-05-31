@@ -9,7 +9,6 @@ import Carte from './Carte';
 import Meteo from './Meteo';
 import SignalerIncident from './SignalerIncident';
 import ListeIncidents from './ListeIncidents';
-import Previsions from './Previsions';
 
 function App() {
   const [recherche, setRecherche] = useState("");
